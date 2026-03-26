@@ -5,11 +5,13 @@ import { PlannerHeader } from './components/PlannerHeader'
 import { SeatingSection } from './components/SeatingSection'
 import { TablesSection } from './components/TablesSection'
 import { useWeddingPlanner } from './hooks/useWeddingPlanner'
+import { useTheme } from './hooks/useTheme'
 import type { Section } from './types/planner'
 import { downloadPlannerExcel } from './utils/importExport'
 
 function App() {
   const [section, setSection] = useState<Section>('invitees')
+  const { theme, toggleTheme } = useTheme()
   const excelInputRef = useRef<HTMLInputElement>(null)
 
   const {
@@ -65,11 +67,13 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_#fef3f2_0%,_#fffaf5_35%,_#f6f8f3_100%)] text-stone-800">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_#fef3f2_0%,_#fffaf5_35%,_#f6f8f3_100%)] text-stone-800 dark:bg-[radial-gradient(circle_at_top_left,_#0f172a_0%,_#1a202c_35%,_#1e293b_100%)] dark:text-stone-200">
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-10 lg:py-12">
         <PlannerHeader
           section={section}
           onSectionChange={setSection}
+          theme={theme}
+          onThemeToggle={toggleTheme}
           inviteeCount={invitees.length}
           tableCount={tables.length}
           assignedCount={stats.assignedInvitees}

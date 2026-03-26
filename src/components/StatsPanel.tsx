@@ -24,14 +24,14 @@ export function StatsPanel({
   ]
 
   return (
-    <section className="mb-6 rounded-3xl border border-stone-200/80 bg-gradient-to-br from-white via-amber-50/30 to-rose-50/40 p-4 shadow-[0_20px_50px_-38px_rgba(51,65,85,0.65)] sm:p-5">
+    <section className="mb-6 rounded-3xl border border-stone-200/80 bg-gradient-to-br from-white via-amber-50/30 to-rose-50/40 p-4 shadow-[0_20px_50px_-38px_rgba(51,65,85,0.65)] dark:border-stone-700/80 dark:from-slate-900 dark:via-slate-800/50 dark:to-slate-800/40 dark:shadow-[0_20px_50px_-38px_rgba(15,23,42,0.85)] sm:p-5">
       <div className="grid gap-3 lg:grid-cols-[1.1fr_2fr]">
-        <article className="rounded-2xl border border-emerald-200 bg-emerald-50/80 p-4">
-          <p className="font-body text-xs uppercase tracking-[0.13em] text-emerald-700">Doluluq dərəcəsi</p>
-          <p className="mt-1 font-display text-5xl text-emerald-900">{occupancyPercent}%</p>
-          <div className="mt-3 h-2.5 w-full overflow-hidden rounded-full bg-emerald-100">
+        <article className="rounded-2xl border border-emerald-200 bg-emerald-50/80 p-4 dark:border-emerald-900/50 dark:bg-emerald-950/50">
+          <p className="font-body text-xs uppercase tracking-[0.13em] text-emerald-700 dark:text-emerald-400">Doluluq dərəcəsi</p>
+          <p className="mt-1 font-display text-5xl text-emerald-900 dark:text-emerald-300">{occupancyPercent}%</p>
+          <div className="mt-3 h-2.5 w-full overflow-hidden rounded-full bg-emerald-100 dark:bg-emerald-950">
             <div
-              className="h-full rounded-full bg-emerald-600 transition-all duration-500"
+              className="h-full rounded-full bg-emerald-600 transition-all duration-500 dark:bg-emerald-500"
               style={{ width: `${Math.min(occupancyPercent, 100)}%` }}
             />
           </div>
@@ -41,12 +41,12 @@ export function StatsPanel({
           {cards.map((card) => (
             <article
               key={card.label}
-              className="rounded-2xl border border-stone-200/80 bg-white/85 px-4 py-4 shadow-[0_15px_40px_-30px_rgba(51,65,85,0.55)] backdrop-blur-sm"
+              className="rounded-2xl border border-stone-200/80 bg-white/85 px-4 py-4 shadow-[0_15px_40px_-30px_rgba(51,65,85,0.55)] backdrop-blur-sm dark:border-stone-700/80 dark:bg-slate-800/50 dark:shadow-[0_15px_40px_-30px_rgba(15,23,42,0.65)]"
             >
-              <p className="font-body text-xs uppercase tracking-[0.12em] text-stone-500">
+              <p className="font-body text-xs uppercase tracking-[0.12em] text-stone-500 dark:text-stone-400">
                 {card.label}
               </p>
-              <p className="mt-1 font-display text-3xl text-stone-900">{card.value}</p>
+              <p className="mt-1 font-display text-3xl text-stone-900 dark:text-stone-100">{card.value}</p>
             </article>
           ))}
         </div>
